@@ -1,0 +1,370 @@
+//1. WAF which logs to the console the numbers smaller than n;  ex: show(4) ==> 0,1,2,3
+
+// for syntax
+function MyFunc(n) { for (i = 0; i < n; i++) { console.log(i) } }
+
+//- use while
+function MyFunc(n) { i = 0; while (i < n) { i++; console.log(i) } }
+
+//- use map
+function MyFunc(n) { arr = Array.from({ length: n }, (_, v) => v); console.log(arr) }
+
+//- use forEach
+function MyFunc(n) {
+    arr = Array.from(Array(n), (v, i) => i);
+    arr.forEach(i => { if (i < n) console.log(i) })
+}
+
+//2. WAF which logs to the console the numbers smaller than n only if number is even;  ex: show(4) ==> 0,2; HINT use if
+//- use for syntax
+
+function MyFunc(n) {
+    for (var i = 0; i < n; i++) {
+        if (i % 2 === 0) { console.log(i) }
+    }
+}
+// - use while 
+function MyFunc(n) {
+    var i = 0;
+    while (i < n) {
+        if (i % 2 === 0) { console.log(i); i++ }
+    }
+}
+
+// - use map 
+function MapEven(n) {
+    arr = Array.from(Array(n), (v, i) => i);
+    arr.map(i => { if (i < n && i % 2 === 0) console.log(i) })
+}
+
+// - use  forEach 
+function forEachEven(n) {
+    arr = Array.from(Array(n), (v, i) => i);
+    arr.forEach(i => { if (i < n && i % 2 === 0) console.log(i) })
+}
+
+//3.  WAF which logs to the console the numbers smaller than n and iterating over x steps;  ex: show(20, 3) ==> 3, 6, 9, 12, 15, 18
+// - use for syntax 
+function ForStep(n, x) {
+    for (i = 0; i < n; i += x) { console.log(i) }
+};
+
+// - use while sytanx 
+function WhileStep(n, x) {
+    var i = 0;
+    while (i < n) { console.log(i); i += x }
+}
+
+// - use map 
+function MapStep(n, x) {
+    arr = Array.from(Array(n), (v, i) => i);
+    arr.map(i => { if (i < n && i % x === 0) { console.log(i) } })
+}
+
+// - use forEach
+function EachStep(n, x) {
+    arr = Array.from(Array(n), (v, i) => i);
+    arr.forEach(i => { if (i < n && i % x === 0) { console.log(i) } })
+}
+
+    }
+
+//4. the same as exercise 2 but the input will be an array
+// - use for syntax 
+function ForArr(array) {
+    for (i = 0; i <= array.length; i++) {
+        if (i % 2 === 0) { console.log(i) }
+    }
+
+}
+
+// - use while syntax
+function WhileArr(array) {
+    var i = 0;
+    while (i <= array.length) {
+        if (i % 2 === 0) { console.log(i); }
+    }
+}
+
+// - use map 
+function MapStepArr(array, x) {
+    array.map(i => { if (i <= array.length && i % x === 0) { console.log(i) } })
+};
+
+// - use forEach 
+function EachStepArr(array, x) {
+    array.forEach(i => { if (i <= array.length && i % x === 0) { console.log(i) } })
+};
+
+//5. WAF which retuns the sum of elements from an array
+//- use while 
+function SumWhile(array) {
+    var i = 0; sum = 0;
+    while (i < array.length) { sum = sum + array[i]; i++ };
+    console.log(sum)
+}
+
+// - use for 
+function SumFor(array) {
+    var sum = 0
+    for (i = 0, i < array.length, i++) { sum += array[i] };
+    console.log(sum)
+}
+
+// - use ForEach 
+function SumForEach(array) {
+    var sum = 0;
+    array.forEach(i => sum += i); console.log(sum)
+}
+
+// - use reduce 
+function SumReduce(array) {
+    return array.reduce((sum, el) => sum + el)
+}
+
+//6. WAF which retuns the sum of elements from an array only if the value is multiple of x
+// - use while 
+function SumXWhile(array, x) {
+    var i = 0; var sum = 0;
+    while (array[i] % x === 0) { sum += array[i] }; console.log(sum); i++;
+}
+
+// - use for 
+function SumXFor(array, x) {
+    var sum = 0;
+    for (i = 0; i < array.length; i++) {
+        if (array[i] % x === 0) { sum = sum + array[i]; console.log(sum) }
+    }
+}
+
+// - use forEach 
+function sumXFE(array, x) {
+    var sum = 0; array.forEach(i => { if (i % x === 0) { sum += i; i++ } });
+    console.log(sum)
+}
+
+// - use reduce 
+function sumXReduce(array, x) {
+    var sum = array.reduce((acc, el) => acc + el, 0);
+    if (sum % x === 0) { console.log(sum) }
+}
+
+// - use filter 
+function sumXFilter(array, x) {
+    var sum = array.filter((i => i % x === 0)).reduce((acc, el) => acc + el, 0);
+    console.log(sum);
+
+}
+
+//7. rotate an array x times
+// - for 
+
+function ForRotate(array, x) {
+    for (i = 0; i < x; i++) {
+        array.unshift(array.pop());
+        console.log(array)
+    };
+}
+
+// - while 
+function WhileRotate(array,x) { var i=0;
+    while (i<x) {array.unshift(array.pop());i++}
+    console.log(array)
+};
+
+//8. WAF which receive an array as input and returns another array  - every time the step will increase with 1. ex;
+    //[3,6,1,8,90,23,4,21,54,2,88, 1,2,3] ==> [3, 6,  8, 4, 88]
+    // - use while 
+    function StepInc(array) { var i = 0; step = 0;
+        while (i<array.length) { step+=1;console.log(array[i]);i+=step };
+    };
+
+//9. WAF which receive an array and returns the sum of numbers;
+	//the element from even position will be decreased with his position
+    //the element from ODD position will be INCREASED with his position
+    //EX: [4,5,6] => (4-0) + (5+1) + (6-2) => ..
+    // - use map 
+    function SumOEMap(array) {
+        var sum = 0; 
+        array.map(i=> {if(i %2 === 0){sum += i - array.indexOf(i)} 
+                        else {sum += i + array.indexOf(i)}}); console.log(sum);
+    };
+
+    // - use for 
+    function SumOEFor(array) { var sum = 0;
+        for(i=0; i<array.length;i++) {
+            if(i %2 === 0){sum += i - array.indexOf(i)} 
+        else {sum += i + array.indexOf(i)}}; 
+        console.log(sum);
+    }
+
+    // - for Each 
+    function SumOEForEach(array) {var sum =0;
+        array.forEach(i=> {if(i%2 === 0){sum+= i - array.indexOf(i)} 
+                            else {sum += i+array.indexOf(i)}}); console.log(sum)
+    };
+
+    // - reduce
+    function SumOEReduce(array) {
+        var sum = array.reduce((acc,el)=> {
+            if(el%2 === 0){acc += el - array.indexOf(el)} 
+            else {acc+= el + array.indexOf(el) }})
+            console.log(sum);}
+
+//10. WAF which returns the maximum element from an array
+    // - use while 
+    function WhileMax(array) {
+        var lung = array.length;
+        var max = -Infinity;
+        while (lung--) {
+            if (array[lung] > max) {
+                max = array[lung];
+
+            }; console.log(max)
+
+        }
+    };
+
+    // - for 
+    function ForMax(array) {
+        var lung = array.length;
+        var max = -Infinity;
+        var i;
+        for (i = 0; lung > i; i++) {
+
+            if (array[i] > max) {
+
+                max = array[i];
+
+            }
+        } console.log(max);
+    }
+
+    // - map 
+    function MapMax(array) {
+            var max = -Infinity;
+        array.map((el => { if (el > max) { max = el } })); console.log(max)
+    };
+
+//11. WAF which returns the MINIMUM element from an array
+    function MapMin(array) {
+      var max = Infinity ;
+      array.map((el => {if (el<max){ max = el }})); console.log(max);
+    };
+//12. WAF with arr as input and returns the position of an element in array; e.g; [4,5,6,4], 6 ==> 2
+function findEL(array, n) {
+    position = array.indexOf(n); console.log(position);
+};
+//13. WAF with arr as input and returns ALL positions of an element in array; e.g; [4,5,6,4], 4 ==> [0,3] 
+function findALL(array, n) {
+    console.log(array.findIndex( n => n = n))}
+
+function findALL2(array,n) { var nindex = [];
+    for(i=0; i<array.length; i++) { if (array[i] === n) {nindex.push(i)};
+    console.log(nindex)}
+};
+
+function findALL3(array,n) { var i=n;
+    while(i<=array.length) {i++;console.log(array[i])}
+}
+
+//14. WAF WR the maximum number smaller than n by using multiplications with 2 (starts with 1); 
+	//e.g: (35) ==> 1 * 2
+    //2*2 = 4
+    //4*2 = 8
+    //8*2=16
+    //16*2 = 32
+    //==> (35-32) ==> 3
+
+    function Multiplu(n) {var result = 1;
+        while (result<n) {
+            result = result * 2; 
+            console.log(result);
+        }
+    }
+// 15. WAF which receive 2 arrays; combine the two arrays; ([1,2,3], [7,8,9] ) ==> [1,7,2,8,3,9]
+    // - use for 
+    function ComboFOR(array1,array2) { 
+        SumArr = [];
+        for (i=0; i<array1.length;i++) { 
+            console.log(array1.concat(array2))
+        }
+    }
+
+    function Combo2(array1,array2) {
+        SumArr = [];
+        for (i=0; i<array2.length; i++) {
+            iArr = [array1[i],array2[i]];
+            SumArr.push(iArr)
+        }
+            console.log(SumArr);
+    };
+    // - use while 
+    function ComboWHILE(array1,array2){
+        var SumArr = []; var i = 0; 
+        while(i<array2.length) {
+            iArr = [array1[i],array2[i]];
+            SumArr.push(iArr);i++
+        };
+        console.log(SumArr)
+    }
+    // - use reduce 
+    function ComboREDUCE(array1,array2){
+        ?
+    }
+// 16. WAF to return true if a number is prime
+
+    function Prime(n){
+        for(var i = 2; i < n; i++)
+        if(n % i === 0) return false;
+      return n > 1;
+    };
+// 17. WAF to return all prime numbers between min, max
+    function PrimeALL(min,max){
+        for(i=min; i<=max;i++) {
+            if (Prime(i)) {
+             console.log(i)
+            }
+        }
+    }
+//18. WAF which returns the sum of elements by using:
+	//- get the first character and after that call the same function with remaining elements
+    //e.g. sum([1,2,3,4]) = 1+ sum([2,3,4]) = 3 + sum([3,4])...
+    function sumEL(array){
+        var sum = 0 
+        for (i=0; i<=i+1; i++) {
+            sum += array.shift()
+        } 
+        console.log(sum)
+        //remove first item - shift 
+        //add to SUM 
+        //remove first item of new array
+        //add to SUM 
+        //Etc
+
+    }
+//19. WAF WR the longest word from a proposition. 
+//e.g. 'ana are mere         golden    ionatan         extraterestre mirifice' ==> extraterestre
+//HINT; se face remove la multiple spatii
+//split in fctr de ' '
+//map pe length
+//aflare maxim element
+//returnare valoare din array a elementului de pe pozitia maxim
+
+    function LongWord(string){
+        var strSplit = string.split(' ');
+        var longest = 0;
+        var longestword;
+
+        for(i=0; i<strSplit.length;i++) {
+            if(strSplit[i].length>longest) {
+                longest = strSplit[i].length;
+                strSplit[i] = longestword;
+            };
+        }
+        console.log(longestword);
+    }
+//20. WAF WR the a^b mod c
+//- this should be made with recursivity. give it a try! 
+// 2^3 * 2^3 = 2 ^ 6 ...
+    

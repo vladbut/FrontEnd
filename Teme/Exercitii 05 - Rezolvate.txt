@@ -1,0 +1,135 @@
+//1. WAF wr the distinct elements from an array
+function Distinct(array) { 
+    let unique = [...new Set(array)];
+    console.log(unique);
+};
+//2. implement a navigation back and forth mechanism
+ //you have an array; your function "next" and "previous" will go next one step and back one step
+ //on next, if index is the last one, it will be set to 0
+ var arr = [1,2,3,4,5,6]
+
+ function next() 
+ //- identifica indexul curent arr.indexOf()
+ // - daca indexul curent e ultimul (= arr.length) atunci indexul se reseteaza
+ // - treci la urmatorul index 
+ // - print arr[index urmator] 
+ {
+     if (i === arr.length) {
+         i = 0
+     }
+     else {
+         i++;
+     }
+return arr[i]
+  }
+
+function previous() {
+    if (i === 0) { 
+        i = arr.length;
+    }
+else { i--;
+    }
+    return arr[i];
+}
+//3. WAF which writes to the console the current date, after 2 seconds
+function DelayDate() {
+    var curent = new Date; 
+    setTimeout(()=> console.log(current), 2000)
+};
+// with arrow function : 
+    //DelayDate2 = () => { var current = new Date; setTimeout(()=> console.log(current), 2000)};
+
+//4. WAF which writes to the console the current date, after x seconds
+DelayDate2 = (x) => {var current = new Date; 
+        x = x * 1000;
+        setTimeout(()=> console.log(current), x)
+};
+//5.having an array of nummbers, print the current date to the console after x seconds
+//Ex: [1,5,6], it will print the date after 1 and after that after 5 and after that after 6 sec
+DelayArray = (array) => {
+    var current = new Date; 
+    array.map((el)=> {el = el*1000; 
+        setTimeout(()=> console.log(current), el)
+    })
+};
+//6. implement double click. WAF WHICH prints to the console "double click" in case the function was triggered twice in a specific iterval
+   // defineste o functie TRIGGER(a,b) {sum = a+b}
+   // defineste o functie de DblClick () { if (TRIGGER(a,b) apelata de 2 ori atunci scrie double click 
+    // daca called = false; called = true daca
+
+    function dblclick() {
+        var clickno = 0;
+        this.click = function() {
+            clickno ++;
+            if(clickno === 2) {
+                console.log('dublu click');
+            }
+        }
+        this.start = function() {
+           setTimeout(() => {
+                clickno =0;
+            }, 10 * 1000)
+        }
+    }
+   // undefined
+    //var test = new dblclick();
+   // undefined
+   // test.start()
+   // undefined
+   // test.click()
+   // undefined
+   // test.click()
+   // VM355:6 dublu click
+   // undefined
+
+   //7. count haw many calls of a function has been made in a specific interval
+    function Calls() { 
+        var callno = 0; 
+        this.call = function() { 
+            callno ++; 
+        }
+
+        this.countcalls = function () { 
+            console.log(callno)
+        }
+    }
+
+    var test = new Calls
+
+//8.WAF which returns the sum of elements from an array. (recursively)
+function sum(array, n) {
+    n ||= 0;
+    if (n === array.length) {
+        return 0;
+    } else {
+        return array[n] + sum(array, n + 1);
+    }
+}
+//9. WAF which calculate the n!   --recursion
+var factorial = function fac(n) { 
+    if(n===1) {
+        return 1
+    }
+   return n = n * fac(n-1);
+};
+ factorial(5)
+ 120
+
+//10. WAF which returns the longest word from a proposition. use regular expression; we didn't learn but do a search.
+
+function LongWord(string){
+    var strSplit = string.split(' ');
+    var longest = 0;
+    var longestword;
+
+    for(i=0; i<strSplit.length;i++) {
+        if(strSplit[i].length>longest) {
+            longest = strSplit[i].length;
+            strSplit[i] = longestword;
+        };
+    }
+    console.log(longestword);
+}
+
+
+
