@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="This is my first website"> 
+        <link rel="stylesheet" href="BookAMeeting.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" 
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <title> Vlad's date-time selector </title>
+    </head>
+         
+    <body style="background-color:white;">
+        <h1><u>Book a meeting</u></h1>
+        <hr/>
+        <hr/>
+    <div>
+                <h6>Appointment time</h6>
+                    <table>
+                    <tr>Start:     </tr>  
+                    <tr><input type="time"/></tr>
+                    </table>
+                    <br/>
+                    <table>
+                        <tr>End:</tr>
+                        <tr><input type="time"/></tr>
+                    </table>
+                    <br/>
+                    <table>
+                        <tr>Duration:        </tr>
+                        <tr><input name="hour" list="hourduration"/></tr>
+                        <datalist id="hourduration">
+                            <option value="1 hour"/>
+                            <option value="2 hours"/>
+                            <option value="3 hours"/>
+                            <option value="4 hours"/>
+                        </datalist>
+                    </table>
+            <hr/>
+            <h6>Recurrence pattern</h6>
+            <div class="container">
+                <div class="row">
+                    <div class="flex-container" style="border-right-style:solid">
+                        <input type="radio" id="daily"/>
+                        <label for="daily">Daily</label><br/>
+                        <input type="radio" id="weekly"/>
+                        <label for="weekly">Weekly</label><br/>
+                        <input type="radio" id="monthly"/>
+                        <label for="monthly">Monthly</label><br/>
+                        <input type="radio" id="yearly"/>
+                        <label for="yearly">Yearly</label><br/>
+                    </div>
+
+                    <div class="col-sm">
+                        <div class="row">
+                            Recur every <input type="number" size="2"/> week(s) on:
+                        </div>
+
+                        <div class="col-sm">
+                            <input type="checkbox" id="sunday"/>
+                            <label for="sunday">Sunday</label>
+                            <input type="checkbox" id="monday"/>
+                            <label for="monday">Monday</label>
+                            <input type="checkbox" id="tuesday"/>
+                            <label for="tuesday">Tuesday</label>
+                            <input type="checkbox" id="wednesday"/>
+                            <label for="wednesday">Wednesday</label>
+                        </div>
+
+                        <div class="col-sm">
+                            <input type="checkbox" id="thursday"/>
+                            <label for="thursday">Thursday</label>
+                            <input type="checkbox" id="friday"/>
+                            <label for="friday">Friday</label>
+                            <input type="checkbox" id="saturday"/>
+                            <label for="saturday">Saturday</label>
+                        </div>
+                    </div>   
+                </div>
+            </div>
+            <hr/>
+            <h6>Range of recurrence</h6>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        Start: <input type="date"/>
+                    </div>
+
+                    <div class="col-sm">
+                        <input type="radio" id="noenddate"/>
+                        <label for="noenddate">No end date</label><br/>
+                        <input type="radio" id="endafter"/>
+                        <label for="endafter">End after:</label><input type="number"/> occurrences<br/>
+                        <input type="radio" id="endby"/>
+                        <label for="endby">End by:</label><input type="date"/>
+                    </div>
+                </div>  
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="col-sm">
+                    <form>
+                        <input class="button" type="button" value = "Ok" padding="10px 24px"/>
+                    </form>
+                </div>
+
+                <div class="col-sm">
+                    <form>
+                        <input class="button" type="button"  value = "Cancel" />
+                    </form>
+                </div>
+                
+                <div class="col-sm">
+                    
+                    <form>
+                        <input id="button2" type="button"  value="Remove Recurrence"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <br/>
+    <br/>
+    <br/>
+          
+          
+    </body>
+        
+</html>
